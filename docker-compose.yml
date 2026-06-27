@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mapeia a pasta local para dentro do container (Hot-reload)
+      - .:/app
+      # Evita que o node_modules local sobrescreva o do container
+      - /app/node_modules 
+    environment:
+      - NODE_ENV=development
